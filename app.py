@@ -43,7 +43,7 @@ class UserInput(BaseModel):
 @app.post("/run_agent")
 async def run_agent_endpoint(user_input: UserInput):
     """
-    Receives user input and executes the content builderagent to provide a response.
+    Receives user input and executes the content builder agent to provide a response.
     """
     out = await run_content_agent(user_input.thread_id, user_input.user_input)
 

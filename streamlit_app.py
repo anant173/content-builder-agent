@@ -16,12 +16,8 @@ import requests
 import streamlit as st
 
 # FastAPI base URL
-# Local example: http://localhost:8000
-# In docker-compose: http://fastapi-agent:8000
 API_URL = os.getenv("AGENT_API_URL", "http://localhost:8000").rstrip("/")
 
-# Optional: if FastAPI is mounted behind a root_path on TrueFoundry
-# e.g. /service/<name> ; you can pass it here or bake it into AGENT_API_URL
 SERVICE_ROOT_PATH = os.getenv("TFY_SERVICE_ROOT_PATH", "").rstrip("/")
 
 def api(path: str) -> str:
