@@ -1,4 +1,4 @@
-"""FastAPI backend for ResMed Support Agent."""
+"""FastAPI backend for Content Builder Agent."""
 import os
 import sys
 from pathlib import Path

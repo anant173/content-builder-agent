@@ -1,7 +1,8 @@
 # Content Builder Agent
 
 <img width="1255" height="756" alt="content-cover-image" src="https://github.com/user-attachments/assets/4ebe0aba-2780-4644-8a00-ed4b96680dc9" />
-
+This example
+ has been adapted to be deployed on TrueFoundry from LangChain Deep Agents GitHub repo [here](https://github.com/langchain-ai/deepagents/tree/main/examples/content-builder-agent). 
 A content writing agent for writing blog posts, LinkedIn posts, and tweets with cover images included.
 
 **This example demonstrates how to define an agent through three filesystem primitives:**
@@ -15,9 +16,13 @@ The `content_writer.py` script shows how to combine these into a working agent.
 
 ```bash
 # Set API keys
-export ANTHROPIC_API_KEY="..."
-export GOOGLE_API_KEY="..."      # For image generation
+export TFY_API_KEY="..."    # For all models (text + image)
+export TFY_API_KEY="..."      # For image generation
 export TAVILY_API_KEY="..."      # For web search (optional)
+export MAIN_LLM_MODEL="..."     # For text generation
+export IMAGE_MODEL="..."    # For image generation
+
+Or just set the `.env` file as shown in `.env.example`
 
 # Run (uv automatically installs dependencies on first run)
 cd examples/content-builder-agent
@@ -126,7 +131,7 @@ description: Use this skill when writing email newsletters
 ```yaml
 editor:
   description: Review and improve drafted content
-  model: anthropic:claude-haiku-4-5-20251001
+  model: anthropic:claude-3-5-haiku-20241022
   system_prompt: |
     You are an editor. Review the content and suggest improvements...
   tools: []
@@ -141,6 +146,5 @@ This agent has filesystem access and can read, write, and delete files on your m
 ## Requirements
 
 - Python 3.11+
-- `ANTHROPIC_API_KEY` - For the main agent
-- `GOOGLE_API_KEY` - For image generation (uses Gemini's [Imagen / "nano banana"](https://ai.google.dev/gemini-api/docs/image-generation) via `gemini-2.5-flash-image`)
-- `TAVILY_API_KEY` - For web search (optional, research still works without it)
+- `TFY_API_KEY` - For the main agent, sub agent (use `provider/claude-3-5-haiku-20241022`) as well as for image generation (use `gemini-2.5-flash-image`)
+- `TAVILY_API_KEY` - For web search
