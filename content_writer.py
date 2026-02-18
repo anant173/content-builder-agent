@@ -206,7 +206,7 @@ def load_subagents(config_path: Path) -> list:
             "extra_headers":{
                 "X-TFY-METADATA": '{}',
                 "X-TFY-LOGGING-CONFIG": '{"enabled": true}',
-                "X-TFY-GUARDRAILS": '{"llm_input_guardrails":["guardrails/pii-guardrail"],"llm_output_guardrails":["guardrails/content-moderation-guardrail"]}',
+                ##"X-TFY-GUARDRAILS": '{"llm_input_guardrails":["guardrails/pii-guardrail"],"llm_output_guardrails":["guardrails/content-moderation-guardrail"]}',
             },
             },
         )
@@ -244,7 +244,7 @@ def create_content_writer():
             "extra_headers":{
                 "X-TFY-METADATA": '{}',
                 "X-TFY-LOGGING-CONFIG": '{"enabled": true}',
-                "X-TFY-GUARDRAILS": '{"llm_input_guardrails":["guardrails/pii-guardrail"],"llm_output_guardrails":["guardrails/content-moderation-guardrail"]}',
+                ##"X-TFY-GUARDRAILS": '{"llm_input_guardrails":["guardrails/pii-guardrail"],"llm_output_guardrails":["guardrails/content-moderation-guardrail"]}',
             },
             },
         )
