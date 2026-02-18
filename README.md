@@ -1,8 +1,7 @@
 # Content Builder Agent
 
-<img width="1255" height="756" alt="content-cover-image" src="https://github.com/user-attachments/assets/4ebe0aba-2780-4644-8a00-ed4b96680dc9" />
-This example
- has been adapted to be deployed on TrueFoundry from LangChain Deep Agents GitHub repo [here](https://github.com/langchain-ai/deepagents/tree/main/examples/content-builder-agent). 
+This example has been adapted to be deployed on TrueFoundry from [LangChain Deep Agents GitHub repo](https://github.com/langchain-ai/deepagents/tree/main/examples/content-builder-agent).
+
 A content writing agent for writing blog posts, LinkedIn posts, and tweets with cover images included.
 
 **This example demonstrates how to define an agent through three filesystem primitives:**
