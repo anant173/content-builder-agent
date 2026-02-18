@@ -52,10 +52,7 @@ async def run_agent_endpoint(user_input: UserInput):
     return {
         "thread_id": user_input.thread_id,
         "final_text": out["final_text"],
-        "files_base_url": "/files",
-        # Clients can fetch:
-        # /files/blogs/<slug>/post.md
-        # /files/blogs/<slug>/hero.png
-        # /files/linkedin/<slug>/post.md
-        # /files/linkedin/<slug>/image.png
-    }
+        "platform": out.get("platform"),
+        "slug": out.get("slug"),
+        "files": out.get("files", {})
+        }

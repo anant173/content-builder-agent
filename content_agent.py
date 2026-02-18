@@ -214,10 +214,30 @@ async def run_content_agent(thread_id: str, task: str) -> Dict[str, Any]:
 
     # Extract final assistant text if present
     final_text = ""
-    msgs = result.get("messages", [])
-    for m in reversed(msgs):
-        if getattr(m, "type", None) == "ai" or m.__class__.__name__ == "AIMessage":
-            final_text = getattr(m, "content", "") or ""
-            break
+    platform = None
+    slug = None
 
-    return {"final_text": final_text}
+    for msg in result["messages"]:
+        if hasattr(msg, "tool_calls") and msg.tool_calls:
+            for tc in msg.tool_calls:
+                if tc["name"] == "write_file":
+                    platform = tc["args"].get("platform")
+                    slug = tc["args"].get("slug")
+
+        if msg.type == "ai":
+            final_text = msg.content
+
+    files = {}
+    if platform and slug:
+        files = {
+            "markdown": f"{platform}/{slug}/post.md",
+            "hero_image": f"blogs/{slug}/hero.png",
+            "social_image": f"{platform}/{slug}/image.png",
+        }
+
+    return {
+        "final_text": final_text,
+        "platform": platform,
+        "slug": slug,
+        "files": files,
+    }
