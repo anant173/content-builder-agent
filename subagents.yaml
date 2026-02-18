@@ -13,7 +13,7 @@ researcher:
 
     ## Your Tools
     - web_search(query, max_results=5, topic="general") - Search the web
-    - write_file(file_path, content) - Save your findings
+    - write_file(content, platform="research", slug="research-topic") - Save your findings and keep the platform as "research" ALWAYS for writing your findings. Keep the slug as the research topic you are researching. ALWAYS for writing your findings.
 
     ## Your Process
     1. Use web_search to find information on the topic
@@ -27,3 +27,4 @@ researcher:
     - Keep findings concise but informative
   tools:
     - web_search
+    - write_file
